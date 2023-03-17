@@ -15,6 +15,7 @@
 		08773A3629C47DBA0015C1B9 /* AssignmentMADUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08773A3529C47DBA0015C1B9 /* AssignmentMADUITests.swift */; };
 		08773A3829C47DBA0015C1B9 /* AssignmentMADUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08773A3729C47DBA0015C1B9 /* AssignmentMADUITestsLaunchTests.swift */; };
 		08773A4629C486590015C1B9 /* ExtractedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08773A4529C486590015C1B9 /* ExtractedView.swift */; };
+		08773A4829C48B8F0015C1B9 /* ListDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08773A4729C48B8F0015C1B9 /* ListDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		08773A3529C47DBA0015C1B9 /* AssignmentMADUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentMADUITests.swift; sourceTree = "<group>"; };
 		08773A3729C47DBA0015C1B9 /* AssignmentMADUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentMADUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		08773A4529C486590015C1B9 /* ExtractedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractedView.swift; sourceTree = "<group>"; };
+		08773A4729C48B8F0015C1B9 /* ListDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 			children = (
 				08773A1C29C47DB90015C1B9 /* ContentView.swift */,
 				08773A4529C486590015C1B9 /* ExtractedView.swift */,
+				08773A4729C48B8F0015C1B9 /* ListDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08773A1D29C47DB90015C1B9 /* ContentView.swift in Sources */,
+				08773A4829C48B8F0015C1B9 /* ListDetailView.swift in Sources */,
 				08773A1B29C47DB90015C1B9 /* AssignmentMADApp.swift in Sources */,
 				08773A4629C486590015C1B9 /* ExtractedView.swift in Sources */,
 			);
