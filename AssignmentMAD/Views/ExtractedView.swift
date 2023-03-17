@@ -9,17 +9,18 @@ import Foundation
 import SwiftUI
 
 struct ExtractedView:View{
-    @Binding var task:[String]
+    @Binding var grocery:[String]
+
     var body:some View{
         HStack{
-            Text(task[0])
+            Text(grocery[0])
             Spacer()
-            Image(systemName: task[2])//systemName: "checkmark")
+            Image(systemName: grocery[1])//systemName: "checkmark")
         }.onTapGesture {
-            if(task[2]=="checkmark"){
-                task[2]==""
+            if(grocery[1]=="checkmark"){
+                grocery[1]==""
             }else{
-                task[2]="checkmark"
+                grocery[1]="checkmark"
             }
         }
     }

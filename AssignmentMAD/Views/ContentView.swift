@@ -9,17 +9,32 @@ import SwiftUI
 
 struct ContentView: View {
     @State var GroceryList=[["Milk",""],["Sugar",""],["Bread",""],["Cheese",""]]
-    var body: some View {
-       NavigationView(
-        List{
-            ForEach($GroceryList,id:\.self){
-                $grocery in NavigationLink(destination:ListDetailView(item:$grocery))
-            }
-        }.navigationTitle("Grocery")
-        Spacer()
-       ).padding()
+    
+    var body:some View{
+        
+        //VStack(alignment: .leading){
+        NavigationView{
+            List{
+                    ForEach($GroceryList,id:\.self){
+                        $grocery in
+                        NavigationLink(destination: ListDetailView(item:grocery)){
+                            ExtractedView(grocery: $grocery)
+                        }
+                    }
+            }.navigationTitle("Grocery Detail")
+            Spacer()
+        }.padding()
     }
 }
+
+struct MileStone1View:View{
+    @State var GroceryList=["Milk","Sugar","Bread","Cheese"]
+    var body:some View{
+        
+    }
+}
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
