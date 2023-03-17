@@ -27,12 +27,21 @@ struct ExtractedView:View{
 }
 */
 struct ExtractedView:View{
-    var item:String
-
+    //var item:String
+    @State var item:[String]
     var body:some View{
         HStack{
-            Text(item)
+            Text(item[0])
             Spacer()
+            //Text(item[1])
+            
+            Image(systemName: item[1]).onTapGesture {
+                if(item[1]=="checkmark"){
+                    item[1]="."
+                }else{
+                    item[1]="checkmark"
+                }            }
+            
         }
     }
 }

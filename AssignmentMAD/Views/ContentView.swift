@@ -30,12 +30,13 @@ struct ContentView: View {
 
 struct MileStone1View:View{
     var GroceryList=["Milk","Sugar","Bread","Cheese"]
+    var GroceryList2=[["Milk","checkmark"],["Sugar","."],["Bread","checkmark"],["Cheese","."]]
     var body:some View{
         NavigationStack{
             List{
                 //Text("Grocery").font(.title2)
 
-                ForEach(GroceryList,id:\.self){
+                ForEach(GroceryList2,id:\.self){
                     groceryitem in ExtractedView(item: groceryitem)
                     
                 }
