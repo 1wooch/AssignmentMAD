@@ -30,14 +30,14 @@ struct ContentView: View {
 
 struct MileStone1View:View{
     var GroceryList=["Milk","Sugar","Bread","Cheese"]
-    var GroceryList2=[["Milk","checkmark"],["Sugar","."],["Bread","checkmark"],["Cheese","."]]
+    @State var GroceryList2=[["Milk","y"],["Sugar","n"],["Bread","y"],["Cheese","n"]]
     var body:some View{
         NavigationStack{
             List{
                 //Text("Grocery").font(.title2)
 
-                ForEach(GroceryList2,id:\.self){
-                    groceryitem in ExtractedView(item: groceryitem)
+                ForEach($GroceryList2,id:\.self){
+                    $groceryitem in ExtractedView(item: $groceryitem)
                     
                 }
             }.navigationTitle("Grocery")
