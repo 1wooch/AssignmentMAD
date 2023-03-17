@@ -33,32 +33,24 @@ struct ExtractedView:View{
     let testImage2=UIImage(systemName: "checkmark")
     
     var body:some View{
-        let testImage2=UIImage(systemName: "checkmark")
+        //let testImage2=UIImage(systemName: "checkmark")
 
         HStack{
             Text(item[0])
             Spacer()
-            
-            
-            
-            
-            
-            /*
-            if(item[1]=="y"){
-                Text(item[1])
-                testImage2.onTapGesture {
-                    testImage2.isHidden=true
-                    
+            if (item[1]=="y"){
+                Image(systemName: "checkmark")
                 }
-                //testImage.isHidden=false
-            }else{
-                //testImage.isHidden=true
+            }.onTapGesture {
+                if(item[1]=="y"){
+                    item[1]="n"
+                }else{
+                    item[1]="y"
+                }
             }
-            
-            */
             
         }
             
     }
-}
+
 
