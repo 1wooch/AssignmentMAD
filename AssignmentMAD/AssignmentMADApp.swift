@@ -11,7 +11,8 @@ import SwiftUI
 struct AssignmentMADApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            //ContentView()
+            MileStone1View()
         }
     }
 }

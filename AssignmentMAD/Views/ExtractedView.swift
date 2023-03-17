@@ -7,21 +7,32 @@
 
 import Foundation
 import SwiftUI
-
+/*
 struct ExtractedView:View{
-    @Binding var grocery:[String]
+    @Binding var item:[String]
 
     var body:some View{
         HStack{
-            Text(grocery[0])
+            Text(item[0])
             Spacer()
-            Image(systemName: grocery[1])//systemName: "checkmark")
+            Image(systemName: item[1])//systemName: "checkmark")
         }.onTapGesture {
-            if(grocery[1]=="checkmark"){
-                grocery[1]==""
+            if(item[1]=="checkmark"){
+                item[1]==""
             }else{
-                grocery[1]="checkmark"
+                item[1]="checkmark"
             }
+        }
+    }
+}
+*/
+struct ExtractedView:View{
+    var item:String
+
+    var body:some View{
+        HStack{
+            Text(item)
+            Spacer()
         }
     }
 }

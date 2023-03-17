@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+/*
 struct ContentView: View {
     @State var GroceryList=[["Milk",""],["Sugar",""],["Bread",""],["Cheese",""]]
     
@@ -18,7 +18,7 @@ struct ContentView: View {
                     ForEach($GroceryList,id:\.self){
                         $grocery in
                         NavigationLink(destination: ListDetailView(item:grocery)){
-                            ExtractedView(grocery: $grocery)
+                            ExtractedView(item: $grocery)
                         }
                     }
             }.navigationTitle("Grocery Detail")
@@ -26,10 +26,22 @@ struct ContentView: View {
         }.padding()
     }
 }
+*/
 
 struct MileStone1View:View{
-    @State var GroceryList=["Milk","Sugar","Bread","Cheese"]
+    var GroceryList=["Milk","Sugar","Bread","Cheese"]
     var body:some View{
+        NavigationStack{
+            List{
+                //Text("Grocery").font(.title2)
+
+                ForEach(GroceryList,id:\.self){
+                    groceryitem in ExtractedView(item: groceryitem)
+                    
+                }
+            }.navigationTitle("Grocery")
+        }
+        
         
     }
 }
@@ -38,6 +50,6 @@ struct MileStone1View:View{
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MileStone1View()
     }
 }
