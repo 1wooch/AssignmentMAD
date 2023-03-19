@@ -36,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		081823FD29C6FBAC00C3274C /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 		08773A1729C47DB90015C1B9 /* AssignmentMAD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AssignmentMAD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08773A1A29C47DB90015C1B9 /* AssignmentMADApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentMADApp.swift; sourceTree = "<group>"; };
 		08773A1C29C47DB90015C1B9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -102,6 +103,7 @@
 				08773A1A29C47DB90015C1B9 /* AssignmentMADApp.swift */,
 				08773A1E29C47DBA0015C1B9 /* Assets.xcassets */,
 				08773A2029C47DBA0015C1B9 /* Preview Content */,
+				081823FD29C6FBAC00C3274C /* readme.md */,
 			);
 			path = AssignmentMAD;
 			sourceTree = "<group>";
