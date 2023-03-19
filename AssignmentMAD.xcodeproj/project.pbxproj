@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		081823FE29C70DE000C3274C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08773A1C29C47DB90015C1B9 /* ContentView.swift */; };
+		081823FF29C70DE500C3274C /* ExtractedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08773A4529C486590015C1B9 /* ExtractedView.swift */; };
+		0818240029C70DE900C3274C /* ListDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08773A4729C48B8F0015C1B9 /* ListDetailView.swift */; };
 		08773A1B29C47DB90015C1B9 /* AssignmentMADApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08773A1A29C47DB90015C1B9 /* AssignmentMADApp.swift */; };
 		08773A1D29C47DB90015C1B9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08773A1C29C47DB90015C1B9 /* ContentView.swift */; };
 		08773A1F29C47DBA0015C1B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08773A1E29C47DBA0015C1B9 /* Assets.xcassets */; };
@@ -284,7 +287,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				081823FE29C70DE000C3274C /* ContentView.swift in Sources */,
+				0818240029C70DE900C3274C /* ListDetailView.swift in Sources */,
 				08773A2C29C47DBA0015C1B9 /* AssignmentMADTests.swift in Sources */,
+				081823FF29C70DE500C3274C /* ExtractedView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
