@@ -31,6 +31,8 @@ struct ContentView: View {
 struct MileStone1View:View{
     var GroceryList=["Milk","Sugar","Bread","Cheese"]
     @State var GroceryList2=[["Milk","y"],["Sugar","n"],["Bread","y"],["Cheese","n"]]
+    //change this into struct struct GroeceryList {var name:String, var check:Bool }
+    
     var body:some View{
         NavigationStack{
             List{

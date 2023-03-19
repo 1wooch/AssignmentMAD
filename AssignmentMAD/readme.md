@@ -12,7 +12,13 @@ In week 1 I've learnt:
     - How can I change color,font, size of word.
     
 In week 2 I've learnt:
-    -
+    -how to use dictionary in swift language.
+    -for loop and if statement in swift language.
+    -Model View Dsign pattrn
+    - what is function? (return)
+    - How to do the test on swift?
+    - Struct data store type.
+    -How to use List
 
 The Milestone One has implement: 
     1. A title of Page
