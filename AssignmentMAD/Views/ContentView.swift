@@ -48,7 +48,19 @@ struct MileStone1View:View{
         
     }
 }
-
+//
+//struct MileStone1ModelView:View{
+//    @State var GroceryList:[GroceryList]
+//    var body:some View{
+//        NavigationStack{
+//            List{
+//                ForEach($gro) { list in
+//                    /*@START_MENU_TOKEN@*/Text(list.name)/*@END_MENU_TOKEN@*/
+//                }
+//            }
+//        }
+//    }
+//}
 
 
 struct ContentView_Previews: PreviewProvider {
