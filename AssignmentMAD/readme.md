@@ -27,6 +27,6 @@ The Milestone One has implement:
     4. OntapGesture
     5. if statement
     
-The URL Link of the Video can be
-
+The URL Link of the Video :
+https://youtu.be/BCggwj_ghkI
 

@@ -36,7 +36,7 @@ final class AssignmentMADTests: XCTestCase {
         //_XCTAssertionType(MileStone1View().GroceryList2,"Array")
         XCTAssertEqual(MileStone1View().GroceryList2[0][0], "Milk") // why not working???
 
-        //XCTAssertEqual(MileStone1View().GroceryList2[0][0], "Water") // why not working???
+        XCTAssertEqual(MileStone1View().GroceryList2[0][0], "Water") // why not working???
 
         //assert((MileStone1View().GroceryList2 as Any) is Int)
     }
