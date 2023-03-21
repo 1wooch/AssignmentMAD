@@ -30,16 +30,16 @@ struct ExtractedView:View{
     //var item:String
     @Binding var item:[String]
     let testImage=Image(systemName: "checkmark")
-    let testImage2=UIImage(systemName: "checkmark")
-    
+
     var body:some View{
-        //let testImage2=UIImage(systemName: "checkmark")
+        
 
         HStack{
             Text(item[0])
             Spacer()
             if (item[1]=="y"){
-                Image(systemName: "checkmark")
+                testImage
+
                 }
             }.onTapGesture {
                 if(item[1]=="y"){
