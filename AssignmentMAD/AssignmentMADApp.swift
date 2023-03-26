@@ -9,10 +9,11 @@ import SwiftUI
 
 @main
 struct AssignmentMADApp: App {
+    @State var grocerylist=groceryInfo
     var body: some Scene {
         WindowGroup {
             //ContentView()
-            MileStone1View()
+            MileStone1View(grocery: grocerylist)
         }
     }
 }

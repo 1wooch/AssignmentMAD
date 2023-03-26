@@ -7,7 +7,7 @@
 
 import Foundation
 //@State var GroceryList2=[["Milk","y"],["Sugar","n"],["Bread","y"],["Cheese","n"]]
-struct GroceryList{
+struct GroceryList:Identifiable{
     var id = UUID()
     var name:String
     var check:Bool
