@@ -28,4 +28,6 @@ The Milestone One has implement:
     5. if statement
     
 The URL Link of the Video :
-https://youtu.be/TvtW-J2hmP0
+https://youtu.be/jagV8_gRwI8
+Github 
+https://github.com/1wooch/AssignmentMAD.git
