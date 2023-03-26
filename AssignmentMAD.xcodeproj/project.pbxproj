@@ -10,6 +10,7 @@
 		081823FE29C70DE000C3274C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08773A1C29C47DB90015C1B9 /* ContentView.swift */; };
 		081823FF29C70DE500C3274C /* ExtractedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08773A4529C486590015C1B9 /* ExtractedView.swift */; };
 		0818240029C70DE900C3274C /* ListDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08773A4729C48B8F0015C1B9 /* ListDetailView.swift */; };
+		0855CC7C29D054E0006070AC /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08656E4F29C961D9008E2C23 /* DataModel.swift */; };
 		08656E5029C961D9008E2C23 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08656E4F29C961D9008E2C23 /* DataModel.swift */; };
 		08773A1B29C47DB90015C1B9 /* AssignmentMADApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08773A1A29C47DB90015C1B9 /* AssignmentMADApp.swift */; };
 		08773A1D29C47DB90015C1B9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08773A1C29C47DB90015C1B9 /* ContentView.swift */; };
@@ -299,6 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0855CC7C29D054E0006070AC /* DataModel.swift in Sources */,
 				081823FE29C70DE000C3274C /* ContentView.swift in Sources */,
 				0818240029C70DE900C3274C /* ListDetailView.swift in Sources */,
 				08773A2C29C47DBA0015C1B9 /* AssignmentMADTests.swift in Sources */,

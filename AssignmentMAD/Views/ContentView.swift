@@ -29,8 +29,8 @@ struct ContentView: View {
 */
 
 struct MileStone1View:View{
-    @State var grocery : [GroceryList]
-    
+    @State var goceryModel : [GroceryList]
+   // @State var GroceryList2=[["Milk","y"],["Sugar","n"],["Bread","y"],["Cheese","n"]]
     //change this into struct struct GroeceryList {var name:String, var check:Bool }
     
     var body:some View{
@@ -38,7 +38,7 @@ struct MileStone1View:View{
             List{
                 //Text("Grocery").font(.title2)
 
-                ForEach($grocery){
+                ForEach($goceryModel){
                     $groceryitem in ExtractedView(item: $groceryitem)
                     
                 }
@@ -65,6 +65,6 @@ struct MileStone1View:View{
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MileStone1View(grocery:groceryInfo)
+        MileStone1View(goceryModel:groceryInfo)
     }
 }

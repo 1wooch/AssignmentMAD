@@ -7,7 +7,7 @@
 
 import XCTest
 @testable import AssignmentMAD
-
+//@testable import
 final class AssignmentMADTests: XCTestCase {
 
     override func setUpWithError() throws {
@@ -41,9 +41,13 @@ final class AssignmentMADTests: XCTestCase {
         //assert((MileStone1View().GroceryList2 as Any) is Int)
         //var item = GroceryList(name: "milk", check: true)
         //XCTAssertEqual(item.name, "milk")
-        //XCTAssertEqual(groceryInfo[.name, "milk")
+        //CTAssertEqual(groceryInfo[.name, "milk")
 
         //XCTAssertEqual(item.check, true)
+        let testvalue = GroceryList(name: "test", check:true)
+        XCTAssertTrue(testvalue.name=="test")
+        XCTAssertTrue(testvalue.check==true)
+        
     }
 
 }
