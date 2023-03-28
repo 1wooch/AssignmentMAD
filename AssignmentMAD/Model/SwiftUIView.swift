@@ -7,6 +7,16 @@
 
 import Foundation
 
+func getFile()->URL?{
+    let filename="checkList.json"
+    let fm = FileManager.default
+    guard let url=fm.urls(for: .documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask).first else{
+        return nil
+    }
+    return url.appendingPathComponent(filename)
+}
+
+
 struct checkList:Hashable,Codable{
     var listName:String //grocery
     var checkListDetail:[checkListDetailitem]// [["milk",boolean],[""]
@@ -50,15 +60,5 @@ var testList=[
     checkList(listName: "first check list", checkListDetail:[] )
 ]
 
-
-
-func getFile()->URL?{
-    let filename="checkList.json"
-    let fm = FileManager.default
-    guard let url=fm.urls(for: .documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask).first else{
-        return nil
-    }
-    return url.appendingPathComponent(filename)
-}
 
 

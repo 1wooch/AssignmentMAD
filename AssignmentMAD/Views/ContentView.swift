@@ -16,8 +16,8 @@ struct MileStone1View:View{
                 EditView(item:$model.title , model : $model)
                 List{
                     ForEach($model.lists,id:\.self){
-                        $data in NavigationLink(destination: subContentView(model:$model, listInfo: $data)){
-                            Text("\(data.listName),\(data.checkListDetail.count)")
+                        $data in NavigationLink(destination: DetailView(model:$model, listInfo: $data)){
+                            Text("\(data.listname),\(data.checkListDetail.count)")
                         }
                     }.onDelete{
                         idx in model.lists.remove(atOffsets: idx)
