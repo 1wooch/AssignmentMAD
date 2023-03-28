@@ -14,7 +14,13 @@ struct subContentView: View {
     
     var body: some View {
         NavigationView{
-            
+            VStack{
+                List{
+                    ForEach($listInfo.checkListDetail, id: \.self){
+                        
+                    }
+                }
+            }
         }
     }
 }
