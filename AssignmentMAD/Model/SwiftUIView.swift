@@ -8,7 +8,7 @@
 import Foundation
 
 func getFile()->URL?{
-    let filename="checkList.json"
+    let filename="checkList2.json"
     let fm = FileManager.default
     guard let url=fm.urls(for: .documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask).first else{
         return nil
@@ -17,18 +17,18 @@ func getFile()->URL?{
 }
 
 
-struct checkList:Hashable,Codable{
+struct checkList:Hashable,Codable{//2
     var listName:String //grocery
     var checkListDetail:[checkListDetailitem]// [["milk",boolean],[""]
 } // contenVIew
 
 
-struct checkListDetailitem:Hashable,Codable{
+struct checkListDetailitem:Hashable,Codable{//3
     var name:String
     var check:Bool
 }
 
-struct DataModel:Codable{
+struct DataModel:Codable{ //1
     var lists:[checkList]
     var title:String
     init(){
@@ -44,6 +44,8 @@ struct DataModel:Codable{
             self.title=testTitle
             return
         }
+        self.lists=datamodel.lists
+        self.title=datamodel.title
     }
     func save(){
         guard let url=getFile(),
@@ -57,7 +59,9 @@ struct DataModel:Codable{
 
 var testTitle="Checklist"
 var testList=[
-    checkList(listName: "first check list", checkListDetail:[] )
+    checkList(listName: "first check list", checkListDetail: [checkListDetailitem(name: "chocolate", check: false),
+         checkListDetailitem(name: "milk", check: true)
+                                                             ])
 ]
 
 
