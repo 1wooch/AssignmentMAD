@@ -13,11 +13,11 @@ struct MileStone1View:View{
     var body:some View{
         NavigationView{
             VStack{
-                EditView(item:$model.title,model:$model)
+                EditView(item:$model.title , model : $model)
                 List{
                     ForEach($model.lists,id:\.self){
-                        $data in NavigationLink(destination: DetailView(item:$data,model:$model)){
-                            Text("\(data.listname),\(data.checkListDetail.length)")
+                        $data in NavigationLink(destination: subContentView(model:$model, listInfo: $data)){
+                            Text("\(data.listName),\(data.checkListDetail.count)")
                         }
                     }.onDelete{
                         idx in model.lists.remove(atOffsets: idx)
@@ -29,7 +29,7 @@ struct MileStone1View:View{
                 }
             }.navigationTitle(model.title)
                 .navigationBarItems(leading: EditButton(), trailing: Button("+"){
-                    model.lists.append(checkList(listName: "new", checkListDetail: [[]]))
+                    model.lists.append(checkList(listName: "new", checkListDetail: []))
                 })
         }
     }

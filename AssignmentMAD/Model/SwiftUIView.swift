@@ -8,9 +8,10 @@
 import Foundation
 
 struct checkList:Hashable,Codable{
-    var listName:String
-    var checkListDetail:[[checkListDetailitem]]//
-}
+    var listName:String //grocery
+    var checkListDetail:[checkListDetailitem]// [["milk",boolean],[""]
+} // contenVIew
+
 
 struct checkListDetailitem:Hashable,Codable{
     var name:String
@@ -46,7 +47,7 @@ struct DataModel:Codable{
 
 var testTitle="Checklist"
 var testList=[
-    checkList(listName: "first check list", checkListDetail:[[]] )
+    checkList(listName: "first check list", checkListDetail:[] )
 ]
 
 

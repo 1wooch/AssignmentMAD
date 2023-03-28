@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct EditView: View {
+    @Binding var item: String //title
     @Binding var model:DataModel
-    @Binding var item:String //title
     @State var displayItem:String=""
     @Environment(\.editMode) var editmode
     
