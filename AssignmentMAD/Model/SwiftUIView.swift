@@ -11,10 +11,12 @@ struct checkList:Hashable,Codable{
     var listName:String
     var checkListDetail:[[checkListDetailitem]]//
 }
+
 struct checkListDetailitem:Hashable,Codable{
     var name:String
     var check:Bool
 }
+
 struct DataModel:Codable{
     var lists:[checkList]
     var title:String

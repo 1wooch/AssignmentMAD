@@ -8,21 +8,30 @@
 import SwiftUI
 
 struct MileStone1View:View{
-    @State var goceryModel : [GroceryList]
+    @Binding var model:DataModel
 
     var body:some View{
-        NavigationStack{
-            List{
-                //Text("Grocery").font(.title2)
-
-                ForEach($goceryModel){
-                    $groceryitem in ExtractedView(item: $groceryitem)
-                    
+        NavigationView{
+            VStack{
+                EditView(item:$model.title,model:$model)
+                List{
+                    ForEach($model.lists,id:\.self){
+                        $data in NavigationLink(destination: DetailView(item:$data,model:$model)){
+                            Text("\(data.listname),\(data.checkListDetail.length)")
+                        }
+                    }.onDelete{
+                        idx in model.lists.remove(atOffsets: idx)
+                        model.save()
+                    }.onMove{
+                        idx,i in model.lists.move(fromOffsets: idx, toOffset: i)
+                        model.save()
+                    }
                 }
-            }.navigationTitle("Grocery")
+            }.navigationTitle(model.title)
+                .navigationBarItems(leading: EditButton(), trailing: Button("+"){
+                    model.lists.append(checkList(listName: "new", checkListDetail: [[]]))
+                })
         }
-        
-        
     }
 }
 
