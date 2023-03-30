@@ -12,7 +12,6 @@ struct subContentView: View {
     @Binding var model:DataModel
     @Binding var listInfo:checkList
     let testImage=Image(systemName: "checkmark")
-    @State var first_check:Bool=true
     @State var test_value:Array=[]
     //@Binding var sublistInfo:checkListDetailitem
     var body: some View {
@@ -23,7 +22,7 @@ struct subContentView: View {
             EditView(item: $listInfo.listName, model: $model)
             List{
                 ForEach($listInfo.checkListDetail, id:\.self){
-                    $item in subContentExtractedView(itemName: $item.name, itemCheck: $item.check,model: $model)
+                    item in subContentExtractedView(subContentList: item, model: $model,dummyCheck:item.check.wrappedValue)
                 }
             }
 

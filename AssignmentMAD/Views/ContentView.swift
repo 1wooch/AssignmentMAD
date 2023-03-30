@@ -35,7 +35,8 @@ struct MileStone1View:View{
                     }
                 }.navigationTitle(model.title)
                     .navigationBarItems(leading: EditButton(), trailing: Button("+"){
-                        model.lists.append(checkList(listName: "new", checkListDetail: [checkListDetailitem(name: "new", check: true)]))
+
+                        model.lists.append(checkList(listName: "new\($model.lists.count)", checkListDetail: [checkListDetailitem(name: "new", check: true)]))
                         model.save()} )
             }
         }

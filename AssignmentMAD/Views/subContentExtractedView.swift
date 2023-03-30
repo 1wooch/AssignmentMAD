@@ -8,43 +8,54 @@
 import SwiftUI
 
 struct subContentExtractedView: View {
-    @Binding var itemName:String
-    @Binding var itemCheck:Bool
+//    @Binding var itemName:String
+//    @Binding var itemCheck:Bool
+    @Binding var subContentList:checkListDetailitem
     @Binding var model:DataModel
-    //@State var dummyCheck:Bool
+    @State var dummyCheck:Bool
+
+    var testImage=Image(systemName: "checkmark")
+ //   let noImage=Image(systemName: " ")
+//    init(itemCheck:Bool,itemName:String,model:DataModel) {
+//        //self.itemCheck = self.dummyCheck
+//        //self._itemCheck = itemCheck
+//         dummyCheck = itemCheck
+//        self.itemName=itemName
+//    }
     
-    let testImage=Image(systemName: "checkmark")
-    let noImage=Image(systemName: " ")
-//    init(itemCheck: Binding<Bool>) {
-//        self._itemCheck=dummyCheck
-//        self._itemCheck = itemCheck
-//        }
     var body: some View {
      
         
         HStack{
-            Text(itemName)
+           
+            Text(subContentList.name)
             Spacer()
             
             //first_check=item.check
-            if(itemCheck){
+            if(dummyCheck){
                 testImage
             }
         }
-        //.onTapGesture{
+        .onTapGesture{
             
-            //self.dummyCheck.toggle()
-            //model.save()
+            subContentList.check.toggle()
+            dummyCheck.toggle()
+            print("sub=\(subContentList)")
+            print("dummy=\(dummyCheck)")
+
+            //print(subContentList.check)
+            model.save()
+            
 //            if(itemCheck){
 //                itemCheck=false
 //                print("cliecked1")
-//                model.save()
+//               // model.save()
 //            }else{
 //                print("clicked2")
 //                itemCheck=true
-//                model.save()
+//              //  model.save()
 //            }
-//        }
+        }
 
     }
 }
