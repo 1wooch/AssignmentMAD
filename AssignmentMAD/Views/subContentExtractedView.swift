@@ -11,13 +11,14 @@ struct subContentExtractedView: View {
     @Binding var itemName:String
     @Binding var itemCheck:Bool
     @Binding var model:DataModel
-    @State var dummyCheck = false
+    //@State var dummyCheck:Bool
     
     let testImage=Image(systemName: "checkmark")
     let noImage=Image(systemName: " ")
-    init(itemCheck:Binding<Bool>){
-        self._itemCheck = itemCheck
-        }
+//    init(itemCheck: Binding<Bool>) {
+//        self._itemCheck=dummyCheck
+//        self._itemCheck = itemCheck
+//        }
     var body: some View {
      
         
@@ -29,10 +30,11 @@ struct subContentExtractedView: View {
             if(itemCheck){
                 testImage
             }
-        }.onTapGesture{
+        }
+        //.onTapGesture{
             
-            self.dummyCheck.toggle()
-            model.save()
+            //self.dummyCheck.toggle()
+            //model.save()
 //            if(itemCheck){
 //                itemCheck=false
 //                print("cliecked1")
@@ -42,7 +44,7 @@ struct subContentExtractedView: View {
 //                itemCheck=true
 //                model.save()
 //            }
-        }
+//        }
 
     }
 }
