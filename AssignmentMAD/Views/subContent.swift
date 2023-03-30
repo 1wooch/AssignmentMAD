@@ -22,8 +22,8 @@ struct subContentView: View {
             //Text("\(listInfo.checkListDetail[1].name)") // second value
             EditView(item: $listInfo.listName, model: $model)
             List{
-                ForEach(listInfo.checkListDetail, id:\.self){
-                    item in subContentExtractedView(itemName: item.name, itemCheck: item.check)
+                ForEach($listInfo.checkListDetail, id:\.self){
+                    $item in subContentExtractedView(itemName: $item.name, itemCheck: $item.check,model: $model)
                 }
             }
 

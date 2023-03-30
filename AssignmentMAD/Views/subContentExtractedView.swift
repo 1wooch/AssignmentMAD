@@ -8,27 +8,40 @@
 import SwiftUI
 
 struct subContentExtractedView: View {
-    @State var itemName:String
-    @State var itemCheck:Bool
+    @Binding var itemName:String
+    @Binding var itemCheck:Bool
+    @Binding var model:DataModel
+    @State var dummyCheck = false
     
     let testImage=Image(systemName: "checkmark")
-
+    let noImage=Image(systemName: " ")
+    init(itemCheck:Binding<Bool>){
+        self._itemCheck = itemCheck
+        }
     var body: some View {
+     
+        
         HStack{
             Text(itemName)
             Spacer()
             
             //first_check=item.check
-            
             if(itemCheck){
                 testImage
             }
         }.onTapGesture{
-            if(itemCheck){
-                itemCheck=false
-            }else{
-                itemCheck=true
-            }
+            
+            self.dummyCheck.toggle()
+            model.save()
+//            if(itemCheck){
+//                itemCheck=false
+//                print("cliecked1")
+//                model.save()
+//            }else{
+//                print("clicked2")
+//                itemCheck=true
+//                model.save()
+//            }
         }
 
     }
