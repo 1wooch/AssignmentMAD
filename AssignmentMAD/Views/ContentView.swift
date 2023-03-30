@@ -26,11 +26,17 @@ struct MileStone1View:View{
                       //      idx,i in model.lists.move(fromOffsets: idx, toOffset: i)
                       //      model.save()
                        // }
+                    }.onDelete{
+                        idx in model.lists.remove(atOffsets: idx)
+                        model.save()
+                    }.onMove{
+                        idx,i in model.lists.move(fromOffsets: idx, toOffset: i)
+                        model.save()
                     }
                 }.navigationTitle(model.title)
                     .navigationBarItems(leading: EditButton(), trailing: Button("+"){
-                        model.lists.append(checkList(listName: "new", checkListDetail: []))
-                    })
+                        model.lists.append(checkList(listName: "new", checkListDetail: [checkListDetailitem(name: "new", check: true)]))
+                        model.save()} )
             }
         }
     }
