@@ -18,14 +18,6 @@ struct MileStone1View:View{
                     ForEach($model.lists,id:\.self){
                         $data in NavigationLink(destination: subContentView(model: $model, listInfo: $data)){
                             Text(data.listName)}
-//                        }.onDelete{
-//                            idx in model.lists.remove(atOffsets: idx)
-//                            model.save()
-//                        }
-                        //.onMove{
-                      //      idx,i in model.lists.move(fromOffsets: idx, toOffset: i)
-                      //      model.save()
-                       // }
                     }.onDelete{
                         idx in model.lists.remove(atOffsets: idx)
                         model.save()

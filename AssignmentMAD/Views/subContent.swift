@@ -23,8 +23,18 @@ struct subContentView: View {
             List{
                 ForEach($listInfo.checkListDetail, id:\.self){
                     item in subContentExtractedView(subContentList: item, model: $model,dummyCheck:item.check.wrappedValue)
+                }.onDelete{
+                    idx in listInfo.checkListDetail.remove(atOffsets: idx)
+                    model.save()
+                }.onMove{
+                    idx,i in listInfo.checkListDetail.move(fromOffsets: idx, toOffset: i)
+                    model.save()
                 }
-            }
+            }.navigationTitle(listInfo.listName)
+                .navigationBarItems(leading: EditButton(), trailing: Button("+"){
+
+                    listInfo.checkListDetail.append(checkListDetailitem(name: "new\(listInfo.checkListDetail.count)", check: false))
+                    model.save()} )
 
         }
     }
