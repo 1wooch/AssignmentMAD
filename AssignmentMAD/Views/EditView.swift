@@ -17,7 +17,7 @@ struct EditView: View {
         VStack{
             if(editmode?.wrappedValue == .active){
                 HStack{
-                    TextField("Enter New Title",text: $displayItem)
+                    TextField("Input",text: $displayItem)
                     Button("Cancel"){
                         displayItem=item
                     }
@@ -34,3 +34,5 @@ struct EditView: View {
         }
     }
 }
+
+

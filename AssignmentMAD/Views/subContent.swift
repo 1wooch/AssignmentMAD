@@ -15,6 +15,7 @@ struct subContentView: View {
     @State var test_value:Array=[]
     //@Binding var sublistInfo:checkListDetailitem
     var body: some View {
+        
         VStack{
             //Text("\(listInfo.listName)")//title
             //Text("\(listInfo.checkListDetail[0].name)") //first value
@@ -32,10 +33,10 @@ struct subContentView: View {
                 }
             }.navigationTitle(listInfo.listName)
                 .navigationBarItems(leading: EditButton(), trailing: Button("+"){
-
                     listInfo.checkListDetail.append(checkListDetailitem(name: "new\(listInfo.checkListDetail.count)", check: false))
-                    model.save()} )
-
+                    model.save()} ).onAppear{
+                        
+                    }
         }
     }
 }

@@ -8,54 +8,61 @@
 import SwiftUI
 
 struct subContentExtractedView: View {
-//    @Binding var itemName:String
-//    @Binding var itemCheck:Bool
+
     @Binding var subContentList:checkListDetailitem
     @Binding var model:DataModel
     @State var dummyCheck:Bool
-
     var testImage=Image(systemName: "checkmark")
- //   let noImage=Image(systemName: " ")
-//    init(itemCheck:Bool,itemName:String,model:DataModel) {
-//        //self.itemCheck = self.dummyCheck
-//        //self._itemCheck = itemCheck
-//         dummyCheck = itemCheck
-//        self.itemName=itemName
-//    }
     
     var body: some View {
-     
-        
         HStack{
-           
-            Text(subContentList.name)
-            Spacer()
-            
-            //first_check=item.check
-            if(dummyCheck){
-                testImage
+            NavigationLink(destination: subConDetailView(tname:$subContentList.name , model: $model)){
+                Text(subContentList.name)
+                Spacer()
+                if(dummyCheck){
+                    testImage
+                }
             }
-        }
-        .onTapGesture{
+            .onTapGesture{
+                
+                subContentList.check.toggle()
+                dummyCheck.toggle()
+                model.save()
+            }
             
-            subContentList.check.toggle()
-            dummyCheck.toggle()
-            print("sub=\(subContentList)")
-            print("dummy=\(dummyCheck)")
+            
+            //print("sub=\(subContentList)")
+            //print("dummy=\(dummyCheck)")
 
-            //print(subContentList.check)
-            model.save()
             
-//            if(itemCheck){
-//                itemCheck=false
+//            if(subContentList.check){
+//                subContentList.check=false
 //                print("cliecked1")
-//               // model.save()
+//                model.save()
 //            }else{
-//                print("clicked2")
-//                itemCheck=true
-//              //  model.save()
+//                subContentList.check=true
+//                model.save()
 //            }
         }
 
+    }
+}
+
+struct subConDetailView:View{
+    @Binding var tname:String
+    @Binding var model:DataModel
+    @State var tnameE:String=""
+    var body: some View{
+        HStack{
+            Text("\(tnameE)")
+            EditView(item: $tnameE, model: $model)
+        }.navigationBarItems(trailing: EditButton()).onAppear{
+            tnameE=tname
+            model.save()
+        }.onDisappear{
+            tname=tnameE
+            model.save()
+        }.padding()
+       
     }
 }
