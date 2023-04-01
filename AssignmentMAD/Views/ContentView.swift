@@ -16,7 +16,7 @@ struct MileStone1View:View{
                 EditView(item:$model.title , model : $model)
                 List{
                     ForEach($model.lists,id:\.self){
-                        $data in NavigationLink(destination: subContentView(model: $model, listInfo: $data)){
+                        $data in NavigationLink(destination: subContentView(model: $model, listInfo: $data, listName: $data.listName)){
                             Text(data.listName)}
                     }.onDelete{
                         idx in model.lists.remove(atOffsets: idx)

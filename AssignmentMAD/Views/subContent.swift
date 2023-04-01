@@ -11,8 +11,11 @@ struct subContentView: View {
     
     @Binding var model:DataModel
     @Binding var listInfo:checkList
+    @Binding var listName:String
+    
     let testImage=Image(systemName: "checkmark")
-    @State var test_value:Array=[]
+    @State var listInfoList:checkList=checkList(listName: "", checkListDetail: [checkListDetailitem(name: "", check: false)])
+    @State var listNameC:String=""
     //@Binding var sublistInfo:checkListDetailitem
     var body: some View {
         
@@ -20,21 +23,29 @@ struct subContentView: View {
             //Text("\(listInfo.listName)")//title
             //Text("\(listInfo.checkListDetail[0].name)") //first value
             //Text("\(listInfo.checkListDetail[1].name)") // second value
-            EditView(item: $listInfo.listName, model: $model)
+            EditView(item: $listNameC, model: $model)
             List{
-                ForEach($listInfo.checkListDetail, id:\.self){
+                ForEach($listInfoList.checkListDetail, id:\.self){
                     item in subContentExtractedView(subContentList: item, model: $model,dummyCheck:item.check.wrappedValue)
                 }.onDelete{
-                    idx in listInfo.checkListDetail.remove(atOffsets: idx)
+                    idx in listInfoList.checkListDetail.remove(atOffsets: idx)
                     model.save()
                 }.onMove{
-                    idx,i in listInfo.checkListDetail.move(fromOffsets: idx, toOffset: i)
+                    idx,i in listInfoList.checkListDetail.move(fromOffsets: idx, toOffset: i)
                     model.save()
                 }
-            }.navigationTitle(listInfo.listName)
+            }.navigationTitle($listNameC)
                 .navigationBarItems(leading: EditButton(), trailing: Button("+"){
-                    listInfo.checkListDetail.append(checkListDetailitem(name: "new\(listInfo.checkListDetail.count)", check: false))
-                    model.save()} )
+                    listInfoList.checkListDetail.append(checkListDetailitem(name: "new\(listInfo.checkListDetail.count)", check: false))
+                    model.save()})
+                .onAppear{
+                    listInfoList=listInfo
+                    listNameC=listInfo.listName
+                }.onDisappear{
+                    listInfo.listName=listNameC
+                    listInfo=listInfoList
+                    model.save()
+                }
         }
     }
 }

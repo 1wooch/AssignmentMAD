@@ -23,10 +23,10 @@ struct EditView: View {
                     }
                 }.onAppear{
                     displayItem=item
-                    print("onappear")
+                   // print("onappear")
                 }.onDisappear{
                     item=displayItem
-                    print("disappear")
+                    //print("disappear")
 
                     model.save()
                 }
