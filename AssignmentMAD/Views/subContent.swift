@@ -20,9 +20,6 @@ struct subContentView: View {
     var body: some View {
         
         VStack{
-            //Text("\(listInfo.listName)")//title
-            //Text("\(listInfo.checkListDetail[0].name)") //first value
-            //Text("\(listInfo.checkListDetail[1].name)") // second value
             EditView(item: $listNameC, model: $model)
             List{
                 ForEach($listInfoList.checkListDetail, id:\.self){
@@ -42,8 +39,9 @@ struct subContentView: View {
                     listInfoList=listInfo
                     listNameC=listInfo.listName
                 }.onDisappear{
-                    listInfo.listName=listNameC
                     listInfo=listInfoList
+                    listInfo.listName=listNameC
+
                     model.save()
                 }
         }
