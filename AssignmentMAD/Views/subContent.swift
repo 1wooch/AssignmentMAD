@@ -17,10 +17,14 @@ struct subContentView: View {
     @State var listInfoList:checkList=checkList(listName: "", checkListDetail: [checkListDetailitem(name: "", check: false)])
     @State var listNameC:String=""
     //@Binding var sublistInfo:checkListDetailitem
+    @State var originalList:checkList=checkList(listName: "", checkListDetail: [checkListDetailitem(name: "", check: false)])
+    @State var conditionReset:Bool=true
+    @State var testname:String=""
+    @State var countValue:Int=0
     var body: some View {
-        
+      
         VStack{
-            EditView(item: $listNameC, model: $model)
+            EditView2(InputTitle: $listNameC, model: $model,dataStorage: $listInfo)
             List{
                 ForEach($listInfoList.checkListDetail, id:\.self){
                     item in subContentExtractedView(subContentList: item, model: $model,dummyCheck:item.check.wrappedValue)
@@ -32,12 +36,40 @@ struct subContentView: View {
                     model.save()
                 }
             }.navigationTitle($listNameC)
-                .navigationBarItems(leading: EditButton(), trailing: Button("+"){
+                .navigationBarItems(leading: EditButton(), trailing: HStack{
+//                    if (conditionReset){
+//                    Button("Reset"){
+//                        countValue=listInfoList.checkListDetail.count
+//
+//                        for i in 0..<(listInfoList.checkListDetail.count){
+//                            testname=listInfo.checkListDetail[i].name
+//                            //print("testname  \(testname)")working
+//                            //listInfoList.checkListDetail.removeFirst()
+//                            listInfoList.checkListDetail.append(checkListDetailitem(name: testname, check: false))
+//                            //listInfoList.checkListDetail[i].check=false
+//                        }
+//                        for j in 0..<countValue{
+//                            listInfoList.checkListDetail.removeFirst()
+//                        }
+//                       // model.save()
+//                        conditionReset=false
+//                        print("test2")
+//                    }
+//                }else {
+//                    Button("Undo Reset"){
+//                        listInfoList=originalList
+//                        conditionReset=true
+//                    }
+//                }
+                Button("+"){
                     listInfoList.checkListDetail.append(checkListDetailitem(name: "new\(listInfo.checkListDetail.count)", check: false))
-                    model.save()})
+                    model.save()}
+                   })
+            
                 .onAppear{
                     listInfoList=listInfo
                     listNameC=listInfo.listName
+                    originalList=listInfo
                 }.onDisappear{
                     listInfo=listInfoList
                     listInfo.listName=listNameC

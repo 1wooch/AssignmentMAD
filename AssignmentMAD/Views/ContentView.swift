@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MileStone1View:View{
     @Binding var model:DataModel
-    
+
     var body:some View{
         NavigationView{
             VStack{

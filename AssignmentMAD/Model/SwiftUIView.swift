@@ -55,6 +55,13 @@ struct DataModel:Codable{ //1
         }
         try? data.write(to: url)
     }
+    mutating func reset(){
+        for i in lists.indices{
+            for j in lists[i].checkListDetail.indices{
+                lists[i].checkListDetail[j].check=false
+            }
+        }
+    }
 }
 
 var testTitle="Checklist"

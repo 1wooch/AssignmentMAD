@@ -97,6 +97,7 @@
 		081E53E629D2E25000618BE2 /* milestone1 */ = {
 			isa = PBXGroup;
 			children = (
+				08656E4F29C961D9008E2C23 /* DataModel.swift */,
 				08773A4529C486590015C1B9 /* ExtractedView.swift */,
 				08773A4729C48B8F0015C1B9 /* ListDetailView.swift */,
 			);
@@ -106,7 +107,6 @@
 		08656E4E29C96158008E2C23 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				08656E4F29C961D9008E2C23 /* DataModel.swift */,
 				081E53DA29D2BAC500618BE2 /* SwiftUIView.swift */,
 			);
 			path = Model;
