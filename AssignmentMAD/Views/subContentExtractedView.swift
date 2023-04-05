@@ -11,29 +11,23 @@ struct subContentExtractedView: View {
 
     @Binding var subContentList:checkListDetailitem
     @Binding var model:DataModel
-    @State var dummyCheck:Bool=false
-    @State var dummyName:String=""
+    //@State var dummyCheck:Bool=false
+    //@State var dummyName:String=""
     var testImage=Image(systemName: "checkmark")
     
     var body: some View {
         HStack{
-            NavigationLink(destination: subConDetailView(tname:$dummyName , model: $model)){
-                Text(dummyName)
+            NavigationLink(destination: subConDetailView(tname:$subContentList.name , model: $model)){
+                Text(subContentList.name)
                 Spacer()
-                if(dummyCheck){
+                if(subContentList.check){
                     testImage
                 }
             }
             .onTapGesture{
-                //subContentList.check.toggle()
-                dummyCheck.toggle()
-                model.save()
-            }.onAppear{
-                dummyName=subContentList.name
-                dummyCheck=subContentList.check
+                subContentList.check.toggle()
+                //model.save()
             }.onDisappear{
-                subContentList.name=dummyName
-                subContentList.check=dummyCheck
                 model.save()
             }
         }

@@ -54,7 +54,7 @@ struct EditView2: View {
     @State var displayItem:String=""
     @Binding var dataStorage:checkList
     
-    @State var listInfoList:checkList=checkList(listName: "", checkListDetail: [checkListDetailitem(name: "", check: false)])
+    //@State var listInfoList:checkList=checkList(listName: "", checkListDetail: [checkListDetailitem(name: "", check: false)])
     @State var conditionReset:Bool=true
     @State var originalList:checkList=checkList(listName: "", checkListDetail: [checkListDetailitem(name: "", check: false)])
     @Environment(\.editMode) var editmode
@@ -71,13 +71,11 @@ struct EditView2: View {
                         }
                         if (conditionReset){
                             Button("Reset"){
-                                for i in 0..<(listInfoList.checkListDetail.count){
-                                    listInfoList.checkListDetail[i].check=false
+                                for i in 0..<(dataStorage.checkListDetail.count){
+                                    dataStorage.checkListDetail[i].check=false
                                 }
                                 conditionReset=false
 
-                            }.onDisappear{
-                                dataStorage=listInfoList
                             }
                         }else{
                             Button("Undo Reset"){
@@ -88,13 +86,11 @@ struct EditView2: View {
                         
                     }.onAppear{
                         displayItem=InputTitle
-                        listInfoList=dataStorage
                         originalList=dataStorage//store start data
                         // print("onappear")
                     }.onDisappear{
                         InputTitle=displayItem
                         //print("disappear")
-                        dataStorage=listInfoList
                         
                         model.save()
                     }

@@ -24,10 +24,10 @@ struct subContentView: View {
     var body: some View {
       
         VStack{
-            EditView2(InputTitle: $listNameC, model: $model,dataStorage: $listInfo)
+            EditView2(InputTitle: $listNameC, model: $model,dataStorage: $listInfoList)
             List{
                 ForEach($listInfoList.checkListDetail, id:\.self){
-                    item in subContentExtractedView(subContentList: item, model: $model,dummyCheck:item.check.wrappedValue)
+                    item in subContentExtractedView(subContentList: item, model: $model)
                 }.onDelete{
                     idx in listInfoList.checkListDetail.remove(atOffsets: idx)
                     model.save()
