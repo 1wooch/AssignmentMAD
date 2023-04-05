@@ -14,64 +14,39 @@ struct subContentView: View {
     @Binding var listName:String
     
     let testImage=Image(systemName: "checkmark")
-    @State var listInfoList:checkList=checkList(listName: "", checkListDetail: [checkListDetailitem(name: "", check: false)])
-    @State var listNameC:String=""
-    //@State var originalList:checkList=checkList(listName: "", checkListDetail: [checkListDetailitem(name: "", check: false)]) // for the
-    @State var conditionReset:Bool=true
-    @State var testname:String=""
-    @State var countValue:Int=0
+    @State var listInfoList:checkList=checkList(listName: "", checkListDetail: [checkListDetailitem(name: "", check: false)]) // Put Binding listinfo value in State to control value in list in this view
+    @State var listNameC:String="" //put binding title so I can edit it
+   
     var body: some View {
       
         VStack{
-            EditView2(InputTitle: $listNameC, model: $model,dataStorage: $listInfoList)
+            EditView2(InputTitle: $listNameC, model: $model,dataStorage: $listInfoList) //for the undo re undo should use new edit view
             List{
                 ForEach($listInfoList.checkListDetail, id:\.self){
-                    item in subContentExtractedView(subContentList: item, model: $model)
+                    item in subContentExtractedView(subContentList: item, model: $model) //link to subcontentdetail view
                 }.onDelete{
-                    idx in listInfoList.checkListDetail.remove(atOffsets: idx)
+                    idx in listInfoList.checkListDetail.remove(atOffsets: idx) //for delete
                     model.save()
-                }.onMove{
+                }.onMove{ //for change order
                     idx,i in listInfoList.checkListDetail.move(fromOffsets: idx, toOffset: i)
                     model.save()
                 }
-            }.navigationTitle($listNameC)
-                .navigationBarItems(leading: EditButton(), trailing: HStack{
-//                    if (conditionReset){
-//                    Button("Reset"){
-//                        countValue=listInfoList.checkListDetail.count
-//
-//                        for i in 0..<(listInfoList.checkListDetail.count){
-//                            testname=listInfo.checkListDetail[i].name
-//                            //print("testname  \(testname)")working
-//                            //listInfoList.checkListDetail.removeFirst()
-//                            listInfoList.checkListDetail.append(checkListDetailitem(name: testname, check: false))
-//                            //listInfoList.checkListDetail[i].check=false
-//                        }
-//                        for j in 0..<countValue{
-//                            listInfoList.checkListDetail.removeFirst()
-//                        }
-//                       // model.save()
-//                        conditionReset=false
-//                        print("test2")
-//                    }
-//                }else {
-//                    Button("Undo Reset"){
-//                        listInfoList=originalList
-//                        conditionReset=true
-//                    }
-//                }
-                Button("+"){
+            }.navigationTitle($listNameC) //title
+                .navigationBarItems(leading: EditButton(), trailing: HStack{ //using h stack to display more than one button on navigationBarItem but delete another button
+
+                Button("+"){ //for new value in list
                     listInfoList.checkListDetail.append(checkListDetailitem(name: "new\(listInfoList.checkListDetail.count)", check: false))
                     model.save()}
                    })
             
-                .onAppear{
+                .onAppear{ //when view is opened copy @Binding value into @State var apply for name and list
                     listInfoList=listInfo
                     listNameC=listInfo.listName
                    // originalList=listInfo
                 }.onDisappear{
                     listInfo=listInfoList
                     listInfo.listName=listNameC
+                    //convert @binding value from @State value  apply for name and list
 
                     model.save()
                 }
