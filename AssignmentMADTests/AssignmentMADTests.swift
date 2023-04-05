@@ -44,9 +44,14 @@ final class AssignmentMADTests: XCTestCase {
         //CTAssertEqual(groceryInfo[.name, "milk")
 
         //XCTAssertEqual(item.check, true)
-        let testvalue = GroceryList(name: "test", check:true)
-        XCTAssertTrue(testvalue.name=="test")
-        XCTAssertTrue(testvalue.check==true)
+        //let testvalue = GroceryList(name: "test", check:true)
+        var testvalue2 = checkListDetailitem(name: "test", check: false)
+        XCTAssertTrue(testvalue2.name=="test") // pas
+        XCTAssertTrue(testvalue2.check==false)//pas
+
+        testvalue2.check=true
+        XCTAssertTrue(testvalue2.check==true) //pas
+        
         
     }
 

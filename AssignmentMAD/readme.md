@@ -54,7 +54,12 @@ The milestone Two has implement:
     6. function
     7. Data types
 The URL Link of the Video :
-Mile Stone 2:
+
+Mile Stone 2 Long Description (9min):https://youtu.be/SzAvFZO_NeE
+
+Mile Stone 2 short Description(4min): https://youtu.be/6OOF6U5JeuE
+
+
 Mile Stone 1:  https://youtu.be/jagV8_gRwI8
 Github 
 https://github.com/1wooch/AssignmentMAD.git
