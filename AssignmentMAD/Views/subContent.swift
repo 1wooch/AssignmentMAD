@@ -62,7 +62,7 @@ struct subContentView: View {
 //                    }
 //                }
                 Button("+"){
-                    listInfoList.checkListDetail.append(checkListDetailitem(name: "new\(listInfo.checkListDetail.count)", check: false))
+                    listInfoList.checkListDetail.append(checkListDetailitem(name: "new\(listInfoList.checkListDetail.count)", check: false))
                     model.save()}
                    })
             
