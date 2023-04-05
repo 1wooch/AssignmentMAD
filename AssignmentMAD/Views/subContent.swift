@@ -16,8 +16,7 @@ struct subContentView: View {
     let testImage=Image(systemName: "checkmark")
     @State var listInfoList:checkList=checkList(listName: "", checkListDetail: [checkListDetailitem(name: "", check: false)])
     @State var listNameC:String=""
-    //@Binding var sublistInfo:checkListDetailitem
-    @State var originalList:checkList=checkList(listName: "", checkListDetail: [checkListDetailitem(name: "", check: false)])
+    //@State var originalList:checkList=checkList(listName: "", checkListDetail: [checkListDetailitem(name: "", check: false)]) // for the
     @State var conditionReset:Bool=true
     @State var testname:String=""
     @State var countValue:Int=0
@@ -69,7 +68,7 @@ struct subContentView: View {
                 .onAppear{
                     listInfoList=listInfo
                     listNameC=listInfo.listName
-                    originalList=listInfo
+                   // originalList=listInfo
                 }.onDisappear{
                     listInfo=listInfoList
                     listInfo.listName=listNameC

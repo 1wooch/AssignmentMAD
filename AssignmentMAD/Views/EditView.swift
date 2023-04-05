@@ -8,34 +8,29 @@
 import SwiftUI
 
 struct EditView: View {
-    @Binding var item: String //title
+    @Binding var item: String //get title
     @Binding var model:DataModel
-    @State var displayItem:String=""
+    @State var displayItem:String="" // for display title in edit mode
     //@Binding var dataStorage:checkList
     
     //@State var listInfoList:checkList=checkList(listName: "", checkListDetail: [checkListDetailitem(name: "", check: false)])
-    var conditionReset:Bool=true
+    //var conditionReset:Bool=true
     
-    @Environment(\.editMode) var editmode
+    @Environment(\.editMode) var editmode //edit mode?
     
     var body: some View {
         VStack{
             if(editmode?.wrappedValue == .active){
                 HStack{
-                    
-                    
-                    
-                    TextField("Input",text: $displayItem)
-                    Button("Cancel"){
+                    TextField("Input",text: $displayItem) //generate text field
+                    Button("Cancel"){ // cancel (reset) button
                         displayItem=item
                     }
-                    
-                    
-                }.onAppear{
-                    displayItem=item
+                }.onAppear{ // when user access to edit view
+                    displayItem=item // copy the value into @State value
                     //dataStorage=model
                    // print("onappear")
-                }.onDisappear{
+                }.onDisappear{ //when user exit the edit view
                     item=displayItem
                     //print("disappear")
 
@@ -49,19 +44,19 @@ struct EditView: View {
 
 
 struct EditView2: View {
-    @Binding var InputTitle: String //title
-    @Binding var model:DataModel
+    @Binding var InputTitle: String //get title
+    @Binding var model:DataModel // get datamodel
     @State var displayItem:String=""
-    @Binding var dataStorage:checkList
+    @Binding var dataStorage:checkList // get data about list
     
-    //@State var listInfoList:checkList=checkList(listName: "", checkListDetail: [checkListDetailitem(name: "", check: false)])
-    @State var conditionReset:Bool=true
-    @State var originalList:checkList=checkList(listName: "", checkListDetail: [checkListDetailitem(name: "", check: false)])
+ 
+    @State var conditionReset:Bool=true // for change reset and undoreset
+    @State var originalList:checkList=checkList(listName: "", checkListDetail: [checkListDetailitem(name: "", check: false)]) // add dummy list
     @Environment(\.editMode) var editmode
     
     var body: some View {
             VStack{
-                if(editmode?.wrappedValue == .active){
+                if(editmode?.wrappedValue == .active){ // if editmode is true
                     VStack{
                         HStack{
                             TextField("Input",text: $displayItem)
@@ -69,17 +64,16 @@ struct EditView2: View {
                                 displayItem=InputTitle
                             }
                         }
-                        if (conditionReset){
+                        if (conditionReset){ //for the first reset
                             Button("Reset"){
                                 for i in 0..<(dataStorage.checkListDetail.count){
-                                    dataStorage.checkListDetail[i].check=false
+                                    dataStorage.checkListDetail[i].check=false // make every check into false to remove check tick
                                 }
-                                conditionReset=false
-
+                                conditionReset=false // make button cancel into Undo Reset button
                             }
                         }else{
                             Button("Undo Reset"){
-                                dataStorage=originalList
+                                dataStorage=originalList //change the display list into original list
                                 conditionReset=true
                             }
                         }

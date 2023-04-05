@@ -8,27 +8,27 @@
 import SwiftUI
 
 struct MileStone1View:View{
-    @Binding var model:DataModel
+    @Binding var model:DataModel // get datamodel
 
     var body:some View{
         NavigationView{
             VStack{
-                EditView(item:$model.title , model : $model)
+                EditView(item:$model.title , model : $model) // lead to normal edit view (only for title)
                 List{
-                    ForEach($model.lists,id:\.self){
+                    ForEach($model.lists,id:\.self){ // all the data in model.list display and make it lead to subContentView link
                         $data in NavigationLink(destination: subContentView(model: $model, listInfo: $data, listName: $data.listName)){
                             Text(data.listName)}
-                    }.onDelete{
+                    }.onDelete{ // for delete
                         idx in model.lists.remove(atOffsets: idx)
                         model.save()
-                    }.onMove{
+                    }.onMove{ // for change order
                         idx,i in model.lists.move(fromOffsets: idx, toOffset: i)
                         model.save()
                     }
-                }.navigationTitle(model.title)
+                }.navigationTitle(model.title) // top title
                     .navigationBarItems(leading: EditButton(), trailing: Button("+"){
                         model.lists.append(checkList(listName: "new\($model.lists.count)", checkListDetail: [checkListDetailitem(name: "new", check: true)]))
-                        model.save()} )
+                        model.save()} ) // for top menu 
             }
         }
     }
