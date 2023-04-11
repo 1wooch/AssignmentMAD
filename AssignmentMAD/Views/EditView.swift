@@ -22,6 +22,7 @@ struct EditView: View {
         VStack{
             if(editmode?.wrappedValue == .active){
                 HStack{
+                    Image("cats").resizable().scaledToFit().frame(width: 40.0,height: 40.0)
                     TextField("Input",text: $displayItem) //generate text field
                     Button("Cancel"){ // cancel (reset) button
                         displayItem=item
