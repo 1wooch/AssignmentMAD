@@ -26,6 +26,9 @@ struct MileStone1View:View{
                         model.save()
                     }
                 }.navigationTitle(model.title) // top title
+                    //.toolbar(Button( Image:"trash"){
+                      //  print("")
+                    //})
                     .navigationBarItems(leading: EditButton(), trailing: Button("+"){
                         model.lists.append(checkList(listName: "new\($model.lists.count)", checkListDetail: [checkListDetailitem(name: "new", check: true)]))
                         model.save()} ) // for top menu 
