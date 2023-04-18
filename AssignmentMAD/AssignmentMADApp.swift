@@ -11,11 +11,11 @@ import SwiftUI
 /// ## Brief Description
 /// if the program run this will be run first.
 /**
-     - Type: struct
-     - Element:
-                    - DataModel
-                        - Type: @State var
-                        - Usage :get a dataModel from Model
+    - Type: struct
+        - Element:
+            - DataModel
+                - Type: @State var
+                - Usage :get a dataModel from Model
                     
      - Procedure:
             1. Get data model from DataModel in ``SwiftUIView``
