@@ -127,12 +127,12 @@ struct DataModel:Codable{ //for the main data model
                             - Usage: try to get a data from url
                         - datamodel
                             - Type: let
-                            - use data which is JSON decode the JSON so, program can use data. 
-     
+                            - Usage: use data which is JSON decode the JSON so, program can use data.
          - Procedure:
-                1.  Get the JSON
-                2.  
-                
+                1.  Get the location of JSON in url
+                2.  get a data using url
+                3. decode the data and put that data in datamodel
+                4. get the list title and lists and put that in value
     */
     mutating func load(){
         guard let url=getFile(),
@@ -145,6 +145,25 @@ struct DataModel:Codable{ //for the main data model
         self.lists=datamodel.lists // and set data as datamodel value
         self.title=datamodel.title // also for title
     }
+    
+    /// # **DataModel.save()**
+    ///
+    /// ## Brief Description
+    /// Save the data in JSON
+    /**
+         - Type: mutating function
+         - Element:
+                        - url
+                            - Type: Guard  let
+                            - Usage : get a location of file
+                        - data (let)
+                            - Type: let
+                            - Usage: try to get a data from url
+         - Procedure:
+                1.  Get the location of JSON in url
+                2. Encode the data into JSON format .
+                3. using url write down the data(JSON) in file.
+     */
     func save(){ // model.save() function
         guard let url=getFile(), // get file and write down.
               let data=try? JSONEncoder().encode(self)
@@ -153,15 +172,12 @@ struct DataModel:Codable{ //for the main data model
         }
         try? data.write(to: url)
     }
-    mutating func reset(){ // not using
-        for i in lists.indices{
-            for j in lists[i].checkListDetail.indices{
-                lists[i].checkListDetail[j].check=false
-            }
-        }
-    }
+   
 }
+
 // initial value when the json file is empty one
+
+/// this is for the initial value if there is no data in JSON file. 
 var testTitle="Checklist"
 var testList=[
     checkList(listName: "first check list", checkListDetail: [checkListDetailitem(name: "chocolate", check: false),
