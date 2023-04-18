@@ -29,6 +29,9 @@
 		08773A3829C47DBA0015C1B9 /* AssignmentMADUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08773A3729C47DBA0015C1B9 /* AssignmentMADUITestsLaunchTests.swift */; };
 		08773A4629C486590015C1B9 /* ExtractedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08773A4529C486590015C1B9 /* ExtractedView.swift */; };
 		08773A4829C48B8F0015C1B9 /* ListDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08773A4729C48B8F0015C1B9 /* ListDetailView.swift */; };
+		DC0E072729EE8104004937DA /* Documentation.docc in Sources */ = {isa = PBXBuildFile; fileRef = DC0E072629EE8104004937DA /* Documentation.docc */; };
+		DCB9188129E53D0C002E8F75 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB9188029E53D0C002E8F75 /* LoadingView.swift */; };
+		DCB9188229E53D0C002E8F75 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB9188029E53D0C002E8F75 /* LoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,8 @@
 		08773A3729C47DBA0015C1B9 /* AssignmentMADUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentMADUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		08773A4529C486590015C1B9 /* ExtractedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractedView.swift; sourceTree = "<group>"; };
 		08773A4729C48B8F0015C1B9 /* ListDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailView.swift; sourceTree = "<group>"; };
+		DC0E072629EE8104004937DA /* Documentation.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Documentation.docc; sourceTree = "<group>"; };
+		DCB9188029E53D0C002E8F75 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +120,7 @@
 		08773A0E29C47DB80015C1B9 = {
 			isa = PBXGroup;
 			children = (
+				DC0E072629EE8104004937DA /* Documentation.docc */,
 				08773A1929C47DB90015C1B9 /* AssignmentMAD */,
 				08773A2A29C47DBA0015C1B9 /* AssignmentMADTests */,
 				08773A3429C47DBA0015C1B9 /* AssignmentMADUITests */,
@@ -178,6 +184,7 @@
 				081E53DD29D2CCC400618BE2 /* EditView.swift */,
 				081E53E029D2CEFF00618BE2 /* subContent.swift */,
 				081E53E729D3154F00618BE2 /* subContentExtractedView.swift */,
+				DCB9188029E53D0C002E8F75 /* LoadingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -314,7 +321,9 @@
 			files = (
 				08656E5029C961D9008E2C23 /* DataModel.swift in Sources */,
 				081E53E129D2CEFF00618BE2 /* subContent.swift in Sources */,
+				DC0E072729EE8104004937DA /* Documentation.docc in Sources */,
 				08773A1D29C47DB90015C1B9 /* ContentView.swift in Sources */,
+				DCB9188129E53D0C002E8F75 /* LoadingView.swift in Sources */,
 				081E53DB29D2BAC500618BE2 /* SwiftUIView.swift in Sources */,
 				08773A4829C48B8F0015C1B9 /* ListDetailView.swift in Sources */,
 				081E53DE29D2CCC400618BE2 /* EditView.swift in Sources */,
@@ -331,6 +340,7 @@
 				0855CC7C29D054E0006070AC /* DataModel.swift in Sources */,
 				081E53E229D2CEFF00618BE2 /* subContent.swift in Sources */,
 				081823FE29C70DE000C3274C /* ContentView.swift in Sources */,
+				DCB9188229E53D0C002E8F75 /* LoadingView.swift in Sources */,
 				081E53DC29D2BAC500618BE2 /* SwiftUIView.swift in Sources */,
 				0818240029C70DE900C3274C /* ListDetailView.swift in Sources */,
 				081E53DF29D2CCC400618BE2 /* EditView.swift in Sources */,

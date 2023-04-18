@@ -36,7 +36,6 @@ struct subContentView: View {
                     }
                     HStack{
                         Button("+"){
-                            print(newTask)
                             listInfoList.checkListDetail.append(checkListDetailitem(name:"\(newTask)",check: false))
                             newTask=""
                             model.save()

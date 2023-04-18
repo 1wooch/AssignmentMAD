@@ -50,52 +50,50 @@ struct EditView2: View {
     @State var displayItem:String=""
     @Binding var dataStorage:checkList // get data about list
     
- 
+    
     @State var conditionReset:Bool=true // for change reset and undoreset
     @State var originalList:checkList=checkList(listName: "", checkListDetail: [checkListDetailitem(name: "", check: false)]) // add dummy list
     @Environment(\.editMode) var editmode
     
     var body: some View {
-            VStack{
-                if(editmode?.wrappedValue == .active){ // if editmode is true
-                    VStack{
-                        HStack{
-                            TextField("Input",text: $displayItem)
-                            Button("Cancel"){
-                                displayItem=InputTitle
-                            }
+        VStack{
+            if(editmode?.wrappedValue == .active){ // if editmode is true
+                VStack{
+                    HStack{
+                        TextField("Input",text: $displayItem)
+                        Button("Cancel"){
+                            displayItem=InputTitle
                         }
-                        if (conditionReset){ //for the first reset
-                            Button("Reset"){
-                                for i in 0..<(dataStorage.checkListDetail.count){
-                                    dataStorage.checkListDetail[i].check=false // make every check into false to remove check tick
-                                }
-                                conditionReset=false // make button cancel into Undo Reset button
-                            }
-                        }else{
-                            Button("Undo Reset"){
-                                dataStorage=originalList //change the display list into original list
-                                conditionReset=true
-                            }
-                        }
-                        
-                    }.onAppear{
-                        displayItem=InputTitle
-                        originalList=dataStorage//store start data
-                        // print("onappear")
-                    }.onDisappear{
-                        InputTitle=displayItem
-                        //print("disappear")
-                        
-                        model.save()
                     }
-                    
-                    
                    
                     
                 }
+                .onAppear{
+                    displayItem=InputTitle
+                    originalList=dataStorage//store start data
+                    // print("onappear")
+                }.onDisappear{
+                    InputTitle=displayItem
+                    //print("disappear")
+                    
+                    model.save()
+                }.navigationBarItems(trailing: HStack{
+                    if (conditionReset){ //for the first reset
+                        Button("Reset"){
+                            for i in 0..<(dataStorage.checkListDetail.count){
+                                dataStorage.checkListDetail[i].check=false // make every check into false to remove check tick
+                            }
+                            conditionReset=false // make button cancel into Undo Reset button
+                        }
+                    }else{
+                        Button("Undo Reset"){
+                            dataStorage=originalList //change the display list into original list
+                            conditionReset=true
+                        }
+                    }
+                })
             }
         }
     }
     
-
+}

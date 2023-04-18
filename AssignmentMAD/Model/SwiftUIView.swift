@@ -6,7 +6,15 @@
 //
 
 import Foundation
-
+/// # ``getFile()``
+///  Open Json file that name is equal to 'let filename' using file manager and return the file url
+///
+/// need to have filename and value for filemanager
+/// and using both data get an URL for Json file.
+/// and return the url value.
+/// For now I have set filename.
+/// but it could be changed into input filename.
+///
 func getFile()->URL?{
     let filename="checkList2.json" //json file name
     let fm = FileManager.default // set default file manager
@@ -15,19 +23,86 @@ func getFile()->URL?{
     }
     return url.appendingPathComponent(filename)
 }
-
-
+/// # **checkList**
+/// First  Array for check list.
+///
+/// ## Brief Description
+///
+/// There is array has included in checkListDetailitem which is for detail of task and explain it later.
+/// This Aray include listName(Task) & checkListDetail (detail of task)
+/**
+- Content of Array
+    - listName
+        - Type:  String
+        -  Usage:  listName is string type and only use for display name of the list that display on front-page list and detailview navigation title.
+    - checkListDetail
+        - Type:   Array of checkListDetailitem
+        - Usage:
+           - 1:  StringIt includes all of the checklist task name and check value.
+           - 2: CheckListDetail: This will be used for subContent, subContentDetailView.
+           - 3:  All of value and type  will be explained in next ``checkListDetail``
+ */
+///
+///
 struct checkList:Hashable,Codable{// for the content view
-    var listName:String //list title
-    var checkListDetail:[checkListDetailitem]//content view data example [["milk",boolean],[""]
+    var listName:String ///list title
+    var checkListDetail:[checkListDetailitem]/// content view data example [["milk",boolean]
+    
 } // contenVIew
 
 
+/// # **checkListDetailitem**
+/// Second  Array in check list array.
+///
+/// ## Brief Description
+///
+/// There is array has included in name of the task and boolean value for display tick or untick.
+/// This Aray include taskName(name) & check(tick or untick)
+/**
+- Content of Array
+    - name
+        - Type:  String
+        -  Usage:  use to display name of the task and will display on subcontent list and subContentdetail page.
+ 
+    - check
+        - Type:   boolean
+        - Usage: To display tick and untick the checkmark by user click interaction.
+ */
 struct checkListDetailitem:Hashable,Codable{// subContent view = checkListDetail
+    var id=UUID()
     var name:String //name of task
     var check:Bool // tick or not tick
 }
 
+
+/// # **DataModel**
+///
+/// ## Brief Description
+///
+/// This part will present basic DataModel for list data.
+///
+///### **init( )**
+///## Brief Description
+///
+/// This part will run 
+///
+/**
+        1. lists
+            - Type: array include ``checkList`` data
+            - Usage:
+                - This can be called by datamodel.lists
+                - This will have all of the lists of task.
+                -  Can list the item by using display data in detail view.
+         2. Title
+            - Type: string only include the name
+            - Usage: Display name of the title on contentview navigation title.
+         3.`` load()``
+            - Type: function
+            - Usage: Load the data from JSON file
+ */
+
+///
+///
 struct DataModel:Codable{ //for the main data model
     var lists:[checkList] // putchecklist format in datamodel.lists
     var title:String // title
@@ -36,6 +111,29 @@ struct DataModel:Codable{ //for the main data model
         title="" // set empty title
         load() // load the data from json file
     }
+    /// # **DataModel.load()**
+    ///
+    /// ## Brief Description
+    /// Load the data from JSON
+    
+    /**
+         - Type: mutating function
+         - Element:
+                        - url
+                            - Type: Guard  let
+                            - Usage : get a location of file
+                        - data (let)
+                            - Type: let
+                            - Usage: try to get a data from url
+                        - datamodel
+                            - Type: let
+                            - use data which is JSON decode the JSON so, program can use data. 
+     
+         - Procedure:
+                1.  Get the JSON
+                2.  
+                
+    */
     mutating func load(){
         guard let url=getFile(),
               let data = try? Data(contentsOf: url),

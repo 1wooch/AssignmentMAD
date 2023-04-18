@@ -9,7 +9,6 @@ import SwiftUI
 
 struct MileStone1View:View{
     @Binding var model:DataModel // get datamodel
-
     var body:some View{
         NavigationView{
             VStack{
@@ -18,7 +17,7 @@ struct MileStone1View:View{
                     ForEach($model.lists,id:\.self){ // all the data in model.list display and make it lead to subContentView link
                         $data in NavigationLink(destination: subContentView(model: $model, listInfo: $data, listName: $data.listName)){
                             Text(data.listName)}
-                    }.onDelete{ // for delete
+                    }.onDelete{ // for delete/Users/wwc/Desktop/AssignmentMAD/AssignmentMAD/AssignmentMAD.doccarchive
                         idx in model.lists.remove(atOffsets: idx)
                         model.save()
                     }.onMove{ // for change order

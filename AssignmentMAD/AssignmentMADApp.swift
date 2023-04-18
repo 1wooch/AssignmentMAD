@@ -13,7 +13,8 @@ struct AssignmentMADApp: App {
     var body: some Scene {
         WindowGroup {
             //ContentView()
-            MileStone1View(model:$model)
+           // MileStone1View(model:$model)
+            LoadingView(model: $model)
         }
     }
 }
