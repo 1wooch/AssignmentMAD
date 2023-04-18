@@ -16,10 +16,10 @@ import Foundation
 /// but it could be changed into input filename.
 ///
 func getFile()->URL?{
-    let filename="checkList2.json" //json file name
-    let fm = FileManager.default // set default file manager
+    let filename="checkList2.json" ///json file name
+    let fm = FileManager.default /// set default file manager
     guard let url=fm.urls(for: .documentDirectory, in:  FileManager.SearchPathDomainMask.userDomainMask).first else{
-        return nil // search file exist or not
+        return nil /// search file exist or not
     }
     return url.appendingPathComponent(filename)
 }
@@ -48,7 +48,7 @@ struct checkList:Hashable,Codable{// for the content view
     var listName:String ///list title
     var checkListDetail:[checkListDetailitem]/// content view data example [["milk",boolean]
     
-} // contenVIew
+}
 
 
 /// # **checkListDetailitem**
@@ -70,8 +70,8 @@ struct checkList:Hashable,Codable{// for the content view
  */
 struct checkListDetailitem:Hashable,Codable{// subContent view = checkListDetail
     var id=UUID()
-    var name:String //name of task
-    var check:Bool // tick or not tick
+    var name:String ///name of task
+    var check:Bool /// tick or not tick
 }
 
 

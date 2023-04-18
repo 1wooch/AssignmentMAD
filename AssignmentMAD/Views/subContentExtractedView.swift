@@ -31,20 +31,23 @@ struct subContentExtractedView: View {
 
     @Binding var subContentList:checkListDetailitem
     @Binding var model:DataModel
-    //@State var dummyCheck:Bool=false
-    //@State var dummyName:String=""
-    var testImage=Image(systemName: "checkmark") //for tick image
+    
+
+    ///for tick image
+    var testImage=Image(systemName: "checkmark")
     
     var body: some View {
         HStack{
-            NavigationLink(destination: subConDetailView(tname:$subContentList.name , model: $model)){ //link to subcondetail display
+            ///link to subcondetail displ/
+            NavigationLink(destination: subConDetailView(tname:$subContentList.name , model: $model)){
                 Text(subContentList.name)
                 Spacer()
                 if(subContentList.check){
                     testImage
                 }
             }
-            .onTapGesture{ //whenever user click the title -> could be change into array itself
+            ///whenever user click the title -> could be change into array itself/
+            .onTapGesture{
                 subContentList.check.toggle()
                 //model.save()
             }.onDisappear{
@@ -84,8 +87,10 @@ struct subConDetailView:View{
     @State var tnameE:String=""
     var body: some View{
         HStack{
-            Text("\(tnameE)") // display name
-            EditView(item: $tnameE, model: $model) // for the edit mode
+            /// display name/
+            Text("\(tnameE)")
+            /// for the edit mode/
+            EditView(item: $tnameE, model: $model)
         }.navigationBarItems(trailing: EditButton()).onAppear{
             tnameE=tname
         }.onDisappear{

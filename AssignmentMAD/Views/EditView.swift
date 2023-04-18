@@ -74,23 +74,23 @@ struct EditView: View {
     - Type: View
     - Element:
         - InputTitle:
-                - Type: String
-                - Usage: get a title from ``subContentView`` element
+            - Type: String
+            - Usage: get a title from ``subContentView`` element
         - model:
-                - Type: string
-                - Usage : get a title of main title from ``subContentView``
+            - Type: string
+            - Usage : get a title of main title from ``subContentView``
         - displayItem:
-                - Type: string
-                - Usage : store ``InputTitle`` as @State value
+            - Type: string
+            - Usage : store ``InputTitle`` as @State value
         - dataStorage:
-                - Type: string
-                - Usage : get a data information from ``subContentView``
+            - Type: string
+            - Usage : get a data information from ``subContentView``
         - conditionReset:
-                - Type: Bool
-                - Usage : to present 'reset' & 'undo reset' button. Every time user click the value will be switched
+            - Type: Bool
+            - Usage : to present 'reset' & 'undo reset' button. Every time user click the value will be switched
         - originalList:
-                - Type: ``checkList``
-                - Usage : get a ``dataStorage`` value into @State ``originalList`` and use it for edit or change the value.
+            - Type: ``checkList``
+            - Usage : get a ``dataStorage`` value into @State ``originalList`` and use it for edit or change the value.
 
  
      - Procedure:
@@ -100,19 +100,24 @@ struct EditView: View {
  */
 
 struct EditView2: View {
-    @Binding var InputTitle: String //get title
-    @Binding var model:DataModel // get datamodel
+    ///get title
+    @Binding var InputTitle: String
+    /// get datamode
+    @Binding var model:DataModel
     @State var displayItem:String=""
-    @Binding var dataStorage:checkList // get data about list
+    /// get data about list
+    @Binding var dataStorage:checkList
     
-    
-    @State var conditionReset:Bool=true // for change reset and undoreset
+    /// for change reset and undoreset
+    @State var conditionReset:Bool=true
     @State var originalList:checkList=checkList(listName: "", checkListDetail: [checkListDetailitem(name: "", check: false)]) // add dummy list
+    
+    
     @Environment(\.editMode) var editmode
     
     var body: some View {
         VStack{
-            if(editmode?.wrappedValue == .active){ // if editmode is true
+            if(editmode?.wrappedValue == .active){
                 VStack{
                     HStack{
                         TextField("Input",text: $displayItem)
@@ -122,25 +127,34 @@ struct EditView2: View {
                     }
                 }
                 .onAppear{
+                    ///store start data
                     displayItem=InputTitle
-                    originalList=dataStorage//store start data
-                    // print("onappear")
+                    
+                    /// print("onappear")
+                    originalList=dataStorage
+                    
+                    
                 }.onDisappear{
                     InputTitle=displayItem
-                    //print("disappear")
+                    
                     
                     model.save()
                 }.navigationBarItems(trailing: HStack{
-                    if (conditionReset){ //for the first reset
+                    ///for the first reset
+                    if (conditionReset){
                         Button("Reset"){
                             for i in 0..<(dataStorage.checkListDetail.count){
-                                dataStorage.checkListDetail[i].check=false // make every check into false to remove check tick
+                                /// make every check into false to remove check tick
+                                /// can use togle() or
+                                dataStorage.checkListDetail[i].check=false
                             }
-                            conditionReset=false // make button cancel into Undo Reset button
+                            /// make button cancel into Undo Reset button
+                            conditionReset=false
                         }
                     }else{
                         Button("Undo Reset"){
-                            dataStorage=originalList //change the display list into original list
+                            ///change the display list into original list
+                            dataStorage=originalList
                             conditionReset=true
                         }
                     }

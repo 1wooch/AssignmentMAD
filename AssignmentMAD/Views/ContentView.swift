@@ -32,13 +32,16 @@ import SwiftUI
             
  */
 struct MileStone1View:View{
-    @Binding var model:DataModel /// get datamodel
+    /// get datamodel
+    @Binding var model:DataModel
     var body:some View{
         /// ``NavigationView`` is to ``navigationLink`` and it will help user to link to ``subContentView`` with clicked value include name and list.
         NavigationView{
             VStack{
                 /// will lead to EditView and send title and datamodel (model) to ``editview``
-                EditView(item:$model.title , model : $model) /// lead to normal edit view (only for title)
+                /// lead to normal edit view (only for title)
+
+                EditView(item:$model.title , model : $model)
                 List{
                     ForEach($model.lists,id:\.self){ /// all the data in model.list display and make it lead to subContentView link
                         ///``destination`` will be link to ``subContentView``
@@ -58,7 +61,8 @@ struct MileStone1View:View{
                         model.save()
                     }
                     
-                }.navigationTitle(model.title) /// For  top title
+                }/// For  top title
+                .navigationTitle(model.title)
                 ///# **navigationBarItems**
                 ////// ## Brief Description
                 ///This part is for the nav bar on the top of the view.

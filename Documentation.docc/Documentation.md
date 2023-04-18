@@ -5,7 +5,7 @@ This project is about listing all of the task and task detail on Swift View.
 ## Overview
 
 
-    Our project has mainly 3 views
+    ##Our project has mainly 3 views
     # ``MileStone1View`` 
     - This is the first view that user face in this app.
     - Contain Main title that can be edit in ``EditView``
@@ -29,7 +29,7 @@ This project is about listing all of the task and task detail on Swift View.
 
 ## Topics
 
-### <!--@START_MENU_TOKEN@-->Group<!--@END_MENU_TOKEN@-->
+### File Structure
     #Model
     - ``SwiftUIView``
     # View

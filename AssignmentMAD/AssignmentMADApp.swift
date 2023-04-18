@@ -26,8 +26,7 @@ struct AssignmentMADApp: App {
     @State var model:DataModel=DataModel()
     var body: some Scene {
         WindowGroup {
-            //ContentView()
-           // MileStone1View(model:$model)
+           
             LoadingView(model: $model)
         }
     }

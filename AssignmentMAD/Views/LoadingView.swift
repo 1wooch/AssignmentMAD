@@ -27,7 +27,8 @@ import SwiftUI
 
 struct LoadingView: View {
     @State var isActive:Bool=false
-    @Binding var model:DataModel // get datamodel
+    /// get datamodel/
+    @Binding var model:DataModel
 
     var body: some View {
         ZStack{
@@ -36,10 +37,9 @@ struct LoadingView: View {
             }else{
                 Color.black.ignoresSafeArea()
 
-                //Rectangle()//.background(Color.purple)
-                Image("cats").resizable().scaledToFit()//.background(Color.purple)//.frame(width: 300,height: 300)
+                Image("cats").resizable().scaledToFit()
             }
-        }//.background(Color.black)
+        }
         .onAppear{
             DispatchQueue.main.asyncAfter(deadline:.now()+1.5){
                 withAnimation{
