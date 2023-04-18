@@ -6,17 +6,56 @@
 //
 
 import SwiftUI
+/// # **subContentView**
+///
+/// ## Brief Description
+/// Display  ``subContentView``
+/**
+    - Type: View
+    - Element:
+        - listNameC:
+                - Type: String
+                - Usage: get a title from ``MileStone1View`` element
+        - model:
+                - Type: ``DataModel``
+                - Usage : get a title of main title from ``MileStone1View``
+        - newTask:
+                - Type: string
+                - Usage : basic value for new element in list
+        - listInfoList:
+                - Type: ``checkList``
+                - Usage : get a ``listInfo`` value into @State ``listInfo`` and use it for edit or change the value.
+
+        - testImage:
+                - Type: Image
+                - Usage : Image for checkmark ("tick")
+        - listName:
+                - Type: String
+                - Usage: get a name of list  from ``MileStone1View`` element
+
+        - listInfo:
+                - Type: ``checkList``
+                - Usage: get a list from ``MileStone1View``.
+ 
+ 
+     - Procedure:
+            1. if the user open this view the @Binding value (name, data list) will be in @State.
+            2. list the ``listInfoList`` using foreach loop.
+            3. '+' button will make new instance in list
+            4. when the page disappear all of the @State value will be put into @Binding and save model.
+ 
+ */
 
 struct subContentView: View {
     
-    @Binding var model:DataModel
+    @Binding var model:DataModel//
     @Binding var listInfo:checkList
-    @Binding var listName:String
+    @Binding var listName:String//
     
-    let testImage=Image(systemName: "checkmark")
-    @State var listInfoList:checkList=checkList(listName: "", checkListDetail: [checkListDetailitem(name: "", check: false)]) // Put Binding listinfo value in State to control value in list in this view
-    @State var listNameC:String="" //put binding title so I can edit it
-    @State var newTask:String=""
+    let testImage=Image(systemName: "checkmark")//
+    @State var listInfoList:checkList=checkList(listName: "", checkListDetail: [checkListDetailitem(name: "", check: false)]) //// Put Binding listinfo value in State to control value in list in this view
+    @State var listNameC:String="" //put binding title so I can edit it//
+    @State var newTask:String=""//
     
     
     var body: some View {

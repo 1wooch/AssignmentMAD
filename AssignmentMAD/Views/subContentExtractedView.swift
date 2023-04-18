@@ -6,7 +6,27 @@
 //
 
 import SwiftUI
-
+/// # **subContentExtractedView**
+///
+/// ## Brief Description
+/// Display  ``subContentExtractedView``
+/**
+    - Type: View
+    - Element:
+        - model:
+                - Type: ``DataModel``
+                - Usage : get a title of main title from ``MileStone1View``
+        - testImage:
+                - Type: Image
+                - Usage : Image for checkmark ("tick")
+        - subContentList:
+                - Type: ``checkListDetailitem``
+                - Usage: get a list from ``MileStone1View``.
+ 
+ 
+     - Procedure:
+            1. Display ``checkListDetailitem`` value name and boolean as image.
+ */
 struct subContentExtractedView: View {
 
     @Binding var subContentList:checkListDetailitem
@@ -34,7 +54,30 @@ struct subContentExtractedView: View {
 
     }
 }
- //this part is kind of need to be deleted  made it too complicate?
+/// # **subContentExtractedView**
+///
+/// ## Brief Description
+/// Display  ``subConDetailView``
+/**
+    - Type: View
+    - Element:
+        - model:
+                - Type: ``DataModel``
+                - Usage : get a title of main title from ``MileStone1View``
+        - tname:
+                - Type: String
+                - Usage : get task name from ``subContentExtractedView``
+        - tnameE:
+                - Type: String
+                - Usage: get ``tname`` value in ``tnameE`` as @State value
+ 
+ 
+     - Procedure:
+            1. Display ``tnameE`` value name
+            2. Once the Editmode is active the textbox will be shown
+            3. User can change the ``tnameE`` by entering value in textbox.
+ */
+
 struct subConDetailView:View{
     @Binding var tname:String
     @Binding var model:DataModel
