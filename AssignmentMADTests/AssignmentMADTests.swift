@@ -6,9 +6,12 @@
 //
 
 import XCTest
+import SwiftUI
+
 @testable import AssignmentMAD
 //@testable import
 final class AssignmentMADTests: XCTestCase {
+    @State var model:DataModel=DataModel()
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -33,26 +36,42 @@ final class AssignmentMADTests: XCTestCase {
         }
     }
     func testArrayValue() throws{
-        //_XCTAssertionType(MileStone1View().GroceryList2,"Array")
-        //XCTAssertEqual(MileStone1View().GroceryList2[0][0], "Milk") // why not working???
-
-        //XCTAssertEqual(MileStone1View().GroceryList2[0][0], "Water") // why not working???
-
-        //assert((MileStone1View().GroceryList2 as Any) is Int)
-        //var item = GroceryList(name: "milk", check: true)
-        //XCTAssertEqual(item.name, "milk")
-        //CTAssertEqual(groceryInfo[.name, "milk")
-
-        //XCTAssertEqual(item.check, true)
-        //let testvalue = GroceryList(name: "test", check:true)
+        /// model value testing.
         var testvalue2 = checkListDetailitem(name: "test", check: false)
         XCTAssertTrue(testvalue2.name=="test") // pas
         XCTAssertTrue(testvalue2.check==false)//pas
 
-        testvalue2.check=true
+        testvalue2.check.toggle()
         XCTAssertTrue(testvalue2.check==true) //pas
-        
-        
+    }
+    
+    func testArrayTypeCHECK() throws{
+        /// model value testing.
+        var testvalue2 = checkListDetailitem(name: "test", check: false)
+        XCTAssert(testvalue2.check is Bool)
+//        if testvalue2.check is Bool{
+//            print("name is String")
+//        }else{
+//            print("name is not String")
+//
+//        }        
+    }
+    func testArrayTypeNAME() throws{
+        /// model value testing.
+        var testvalue2 = checkListDetailitem(name: "test", check: false)
+        XCTAssert(testvalue2.name is String)
+
+    }
+    func testArrayTypeCKLNAME() throws{
+        /// model value testing.
+        var testvalue2 = checkList(listName: "sd", checkListDetail: [checkListDetailitem(name: "test", check: false)])
+        XCTAssert(testvalue2.listName is String)
+    }
+    func testArrayTypeCKLArray() throws{
+        var testvalue2 = checkList(listName: "sd", checkListDetail: [checkListDetailitem(name: "test", check: false)])
+        //print(type(of: testvalue2.checkListDetail))
+        XCTAssert(testvalue2.checkListDetail is Array<checkListDetailitem>)
     }
 
-}
+    }
+
