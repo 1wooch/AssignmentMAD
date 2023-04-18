@@ -30,7 +30,8 @@ import SwiftUI
                         "new \(length of list)" as name of the task  with empty array for task detail .
                 - 'Edit' button: if user click 'edit' button it will lead to  ``EditView`` and change the envrionement to edit mode.
             
- */struct MileStone1View:View{
+ */
+struct MileStone1View:View{
     @Binding var model:DataModel /// get datamodel
     var body:some View{
         /// ``NavigationView`` is to ``navigationLink`` and it will help user to link to ``subContentView`` with clicked value include name and list.

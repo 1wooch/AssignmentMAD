@@ -6,7 +6,31 @@
 //
 
 import SwiftUI
-
+/// # **EditView**
+///
+/// ## Brief Description
+/// Display Edit view for ContentView
+/**
+    - Type: View
+    - Element:
+        - item:
+                - Type: @Binding var
+                - Usage: get a datamodel from model side.
+        - model:
+                - Type: string
+                - Usage : get a title of main title from ``MileStone1View``
+        - displayItem:
+                - Type: string
+                - Usage : get a ``item`` value in this
+ 
+     - Procedure:
+            1. Get the main title and model from mainview
+            2. put main title (item) into ``displayItem`` and will make change with onlt ``displayItem``
+            3. Once the user input text in ``TextField`` and click 'Done' Button it will apply for ``item``
+            4. 'cancel'  will bringback orginal ``item`` value into ``displayItem``
+            5. ``.onappear`` will happen when the view open and store ``item`` value in ``displayItem``
+            6. ``.disappear`` will happen when the view closed and store ``displayItem`` value in ``item`` and ``model.save`` save the data
+ */
 struct EditView: View {
     @Binding var item: String //get title
     @Binding var model:DataModel
@@ -42,7 +66,31 @@ struct EditView: View {
     }
 }
 
-
+/// # **EditView**
+///
+/// ## Brief Description
+/// Display Edit view for ContentView
+/**
+    - Type: View
+    - Element:
+        - item:
+                - Type: @Binding var
+                - Usage: get a datamodel from model side.
+        - model:
+                - Type: string
+                - Usage : get a title of main title from ``MileStone1View``
+        - displayItem:
+                - Type: string
+                - Usage : get a ``item`` value in this
+ 
+     - Procedure:
+            1. Get the main title and model from mainview
+            2. put main title (item) into ``displayItem`` and will make change with onlt ``displayItem``
+            3. Once the user input text in ``TextField`` and click 'Done' Button it will apply for ``item``
+            4. 'cancel'  will bringback orginal ``item`` value into ``displayItem``
+            5. ``.onappear`` will happen when the view open and store ``item`` value in ``displayItem``
+            6. ``.disappear`` will happen when the view closed and store ``displayItem`` value in ``item`` and ``model.save`` save the data
+ */
 
 struct EditView2: View {
     @Binding var InputTitle: String //get title
