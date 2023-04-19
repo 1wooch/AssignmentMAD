@@ -37,7 +37,19 @@ In week 4 I've Learnt:
     - Error handling
     - All the delete, add detail view for assignemnt
     - JSON reading and loading
-    
+
+In week 5 I've Learnt:
+    - Loops (for , while, continue & break)
+    - classes instead struct
+    - Async for waiting time or measuring time
+    - map function
+In week 6 I've Learnt:
+    - How to use core data.
+    - save & fetch data.
+    - Add data entity in core data.
+    -
+
+
 The Milestone One has implement: 
     1. A title of Page
     2. HStack 
@@ -53,13 +65,22 @@ The milestone Two has implement:
     5. Binding and State
     6. function
     7. Data types
+
+The milestone Three has implement:
+    1. Loading Screen
+    2. Docc
+    3. Testing
+
 The URL Link of the Video :
+
+Mile Stone 3 Short Description (4min): https://youtu.be/sD1NqE-0ezw
+Mile Stone 3 Long Description (30min): https://youtu.be/sD1NqE-0ezw
 
 Mile Stone 2 Long Description (9min):https://youtu.be/SzAvFZO_NeE
 
 Mile Stone 2 short Description(4min): https://youtu.be/6OOF6U5JeuE
 
-
 Mile Stone 1:  https://youtu.be/jagV8_gRwI8
+
 Github 
 https://github.com/1wooch/AssignmentMAD.git
